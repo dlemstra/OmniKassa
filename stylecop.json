@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+  "settings": {
+    "documentationRules": {
+      "companyName": "Dirk Lemstra",
+      "copyrightText": "Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).\nLicensed under the MIT License.",
+      "documentInternalElements": false
+    },
+    "indentation": {
+      "indentationSize": 4 
+    },
+    "orderingRules": {
+      "usingDirectivesPlacement": "outsideNamespace"
+    }
+  }
+}
