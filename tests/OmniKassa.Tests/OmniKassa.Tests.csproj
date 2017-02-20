@@ -63,6 +63,7 @@
     <Compile Include="DataStringCreatorTests.cs" />
     <Compile Include="Framework\KassaTests.cs" />
     <Compile Include="Framework\WebHelperTests.cs" />
+    <Compile Include="KassaConfigurationTests.cs" />
     <Compile Include="KassaTests.cs" />
     <Compile Include="PaymentResponseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="TestHelpers\ExceptionAssert.cs" />
     <Compile Include="TestHelpers\ExcludeFromCodeCoverageAttribute.cs" />
     <Compile Include="TestHelpers\TestWebHelper.cs" />
+    <Compile Include="TestKassaConfigurationTests.cs" />
     <Compile Include="Validators\IntValidatorTests.cs" />
     <Compile Include="Validators\KassaConfigurationValidatorTests.cs" />
     <Compile Include="Validators\PaymentPostDataValidatorTests.cs" />

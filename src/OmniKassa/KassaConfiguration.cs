@@ -10,7 +10,7 @@ namespace OmniKassa
     /// <summary>
     /// Encapsulates the configuration of OmniKassa.
     /// </summary>
-    public sealed class KassaConfiguration : IKassaConfiguration
+    public class KassaConfiguration : IKassaConfiguration
     {
         /// <summary>
         /// Gets or sets version number of the secret key. Can be found on the Rabo OmniKassa Downloadsite.
@@ -30,7 +30,7 @@ namespace OmniKassa
         /// <summary>
         /// Gets or sets the url of the Rabo OmniKassa.
         /// </summary>
-        public Uri Url { get; set; }
+        public Uri Url { get; set; } = new Uri("https://payment-webinit.omnikassa.rabobank.nl/paymentServlet");
 
         internal static string InterfaceVersion { get; } = "HP_1.0";
     }
