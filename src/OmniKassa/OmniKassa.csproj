@@ -86,6 +86,7 @@
     <AdditionalFiles Include="..\..\stylecop.json">
       <Link>stylecop.json</Link>
     </AdditionalFiles>
+    <None Include="OmniKassa.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
