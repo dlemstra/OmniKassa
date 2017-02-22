@@ -331,7 +331,7 @@ namespace OmniKassa.Tests.Validators
         }
 
         [TestMethod]
-        public void Validate_PaymentTypesContainsDuplicates_ThrowsException()
+        public void Validate_PaymentBrandsContainsDuplicates_ThrowsException()
         {
             PaymentRequest request = new PaymentRequest()
             {
@@ -339,17 +339,17 @@ namespace OmniKassa.Tests.Validators
                 CurrencyCode = CurrencyCode.Euro,
                 ReturnUrl = new Uri("https://www.github.com"),
                 TransactionReference = "1234",
-                PaymentTypes = new PaymentType[] { PaymentType.VISA, PaymentType.VISA }
+                PaymentBrands = new PaymentBrand[] { PaymentBrand.VISA, PaymentBrand.VISA }
             };
 
-            ExceptionAssert.Throws<InvalidOperationException>($"The value for PaymentTypes should not contain duplicates.", () =>
+            ExceptionAssert.Throws<InvalidOperationException>($"The value for {nameof(request.PaymentBrands)} should not contain duplicates.", () =>
             {
                 PaymentRequestValidator.Validate(request);
             });
         }
 
         [TestMethod]
-        public void Validate_PaymentTypesContainsUnknown_ThrowsException()
+        public void Validate_PaymentBrandsContainsUnknown_ThrowsException()
         {
             PaymentRequest request = new PaymentRequest()
             {
@@ -357,10 +357,10 @@ namespace OmniKassa.Tests.Validators
                 CurrencyCode = CurrencyCode.Euro,
                 ReturnUrl = new Uri("https://www.github.com"),
                 TransactionReference = "1234",
-                PaymentTypes = new PaymentType[] { PaymentType.VISA, PaymentType.Unknown }
+                PaymentBrands = new PaymentBrand[] { PaymentBrand.VISA, PaymentBrand.Unknown }
             };
 
-            ExceptionAssert.Throws<InvalidOperationException>($"The value for PaymentTypes should not contain an unknown payment type.", () =>
+            ExceptionAssert.Throws<InvalidOperationException>($"The value for {nameof(request.PaymentBrands)} should not contain an unknown payment brand.", () =>
             {
                 PaymentRequestValidator.Validate(request);
             });

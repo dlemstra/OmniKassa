@@ -1,4 +1,4 @@
-﻿// <copyright file="PaymentType.cs" company="Dirk Lemstra">
+﻿// <copyright file="PaymentBrand.cs" company="Dirk Lemstra">
 // Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
 // Licensed under the MIT License.
 // </copyright>
@@ -6,9 +6,9 @@
 namespace OmniKassa
 {
     /// <summary>
-    /// Encapsulates the the payment types.
+    /// Encapsulates the the payment brands.
     /// </summary>
-    public enum PaymentType
+    public enum PaymentBrand
     {
         /// <summary>
         /// Unknown

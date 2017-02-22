@@ -34,7 +34,7 @@ namespace OmniKassa
             ValidateCurrencyCode();
             ValidateExpirationDate();
             ValidateOrderId();
-            ValidatePaymentTypes();
+            ValidatePaymentBrands();
             ValidateReturnUrl();
             ValidateTransactionReference();
         }
@@ -97,16 +97,16 @@ namespace OmniKassa
             validator.IsAlphanumeric();
         }
 
-        private void ValidatePaymentTypes()
+        private void ValidatePaymentBrands()
         {
-            if (_request.PaymentTypes == null)
+            if (_request.PaymentBrands == null)
                 return;
 
-            if (_request.PaymentTypes.Count() != _request.PaymentTypes.Distinct().Count())
-                ThrowException($"The value for {nameof(_request.PaymentTypes)} should not contain duplicates.");
+            if (_request.PaymentBrands.Count() != _request.PaymentBrands.Distinct().Count())
+                ThrowException($"The value for {nameof(_request.PaymentBrands)} should not contain duplicates.");
 
-            if (_request.PaymentTypes.Any(type => type == PaymentType.Unknown))
-                ThrowException($"The value for {nameof(_request.PaymentTypes)} should not contain an unknown payment type.");
+            if (_request.PaymentBrands.Any(type => type == PaymentBrand.Unknown))
+                ThrowException($"The value for {nameof(_request.PaymentBrands)} should not contain an unknown payment brand.");
         }
 
         private void ValidateReturnUrl()

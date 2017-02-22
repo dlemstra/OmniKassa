@@ -70,7 +70,7 @@ namespace OmniKassa
         /// the methods are presented to your customer.
         /// [Optional]
         /// </summary>
-        IEnumerable<PaymentType> PaymentTypes { get; }
+        IEnumerable<PaymentBrand> PaymentBrands { get; }
 
         /// <summary>
         /// Gets the page to which the customer is redirected after payment and where the Rabo OmniKassa server sends the manual response message.

@@ -67,7 +67,7 @@
     <Compile Include="PaymentPostData.cs" />
     <Compile Include="PaymentRequest.cs" />
     <Compile Include="PaymentResponse.cs" />
-    <Compile Include="PaymentType.cs" />
+    <Compile Include="PaymentBrand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseCode.cs" />
     <Compile Include="Seal.cs" />

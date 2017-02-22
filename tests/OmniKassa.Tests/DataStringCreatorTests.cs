@@ -276,12 +276,12 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_PaymentTypesIsEmpty_ValidString()
+        public void Create_PaymentBrandsIsEmpty_ValidString()
         {
             var configuration = new KassaConfiguration();
             var request = new PaymentRequest()
             {
-                PaymentTypes = Enumerable.Empty<PaymentType>()
+                PaymentBrands = Enumerable.Empty<PaymentBrand>()
             };
 
             var result = DataString.Create(configuration, request);
@@ -290,12 +290,12 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_PaymentTypesIsSetWithOneValue_ValidString()
+        public void Create_PaymentBrandsIsSetWithOneValue_ValidString()
         {
             var configuration = new KassaConfiguration();
             var request = new PaymentRequest()
             {
-                PaymentTypes = new PaymentType[] { PaymentType.IDEAL }
+                PaymentBrands = new PaymentBrand[] { PaymentBrand.IDEAL }
             };
 
             var result = DataString.Create(configuration, request);
@@ -304,12 +304,12 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_PaymentTypesIsSetWithMultipleValues_ValidString()
+        public void Create_PaymentBrandsIsSetWithMultipleValues_ValidString()
         {
             var configuration = new KassaConfiguration();
             var request = new PaymentRequest()
             {
-                PaymentTypes = new PaymentType[] { PaymentType.IDEAL, PaymentType.MASTERCARD, PaymentType.VISA }
+                PaymentBrands = new PaymentBrand[] { PaymentBrand.IDEAL, PaymentBrand.MASTERCARD, PaymentBrand.VISA }
             };
 
             var result = DataString.Create(configuration, request);

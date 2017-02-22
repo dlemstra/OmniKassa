@@ -45,7 +45,7 @@ namespace OmniKassa
             AddAutomaticResponseUrl();
 
             AddCustomerLanguage();
-            AddPaymentTypes();
+            AddPaymentBrands();
             AddExpirationDate();
             AddCaptureDay();
             AddCaptureMode();
@@ -142,12 +142,12 @@ namespace OmniKassa
             _builder.Append(_request.OrderId);
         }
 
-        private void AddPaymentTypes()
+        private void AddPaymentBrands()
         {
-            if (_request.PaymentTypes == null)
+            if (_request.PaymentBrands == null)
                 return;
 
-            IEnumerator<PaymentType> enumerator = _request.PaymentTypes.GetEnumerator();
+            IEnumerator<PaymentBrand> enumerator = _request.PaymentBrands.GetEnumerator();
             if (!enumerator.MoveNext())
                 return;
 

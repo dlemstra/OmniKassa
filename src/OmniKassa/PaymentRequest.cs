@@ -69,7 +69,7 @@ namespace OmniKassa
         /// the list. The order of names in this field determines the order the methods are presented to your customer.
         /// [Optional]
         /// </summary>
-        public IEnumerable<PaymentType> PaymentTypes { get; set; }
+        public IEnumerable<PaymentBrand> PaymentBrands { get; set; }
 
         /// <summary>
         /// Gets or sets the page to which the customer is redirected after payment and where the Rabo OmniKassa server sends the manual response message.

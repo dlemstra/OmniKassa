@@ -66,7 +66,7 @@ namespace OmniKassa.Tests
             Assert.AreEqual(null, result.MaskedPan);
             Assert.AreEqual(null, result.MerchantId);
             Assert.AreEqual(null, result.OrderId);
-            Assert.AreEqual(PaymentType.Unknown, result.PaymentMeanBrand);
+            Assert.AreEqual(PaymentBrand.Unknown, result.PaymentMeanBrand);
             Assert.AreEqual((ResponseCode)0, result.ResponseCode);
             Assert.AreEqual(null, result.TransactionDateTime);
             Assert.AreEqual(null, result.TransactionReference);
@@ -270,7 +270,7 @@ namespace OmniKassa.Tests
             var result = PaymentResponse.Create("paymentMeanBrand=ACCEPTGIRO");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(PaymentType.ACCEPTGIRO, result.PaymentMeanBrand);
+            Assert.AreEqual(PaymentBrand.ACCEPTGIRO, result.PaymentMeanBrand);
         }
 
         [TestMethod]
@@ -279,7 +279,7 @@ namespace OmniKassa.Tests
             var result = PaymentResponse.Create("paymentMeanBrand=BCMC");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(PaymentType.BCMC, result.PaymentMeanBrand);
+            Assert.AreEqual(PaymentBrand.BCMC, result.PaymentMeanBrand);
         }
 
         [TestMethod]
@@ -288,7 +288,7 @@ namespace OmniKassa.Tests
             var result = PaymentResponse.Create("paymentMeanBrand=IDEAL");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(PaymentType.IDEAL, result.PaymentMeanBrand);
+            Assert.AreEqual(PaymentBrand.IDEAL, result.PaymentMeanBrand);
         }
 
         [TestMethod]
@@ -297,7 +297,7 @@ namespace OmniKassa.Tests
             var result = PaymentResponse.Create("paymentMeanBrand=INCASSO");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(PaymentType.INCASSO, result.PaymentMeanBrand);
+            Assert.AreEqual(PaymentBrand.INCASSO, result.PaymentMeanBrand);
         }
 
         [TestMethod]
@@ -306,7 +306,7 @@ namespace OmniKassa.Tests
             var result = PaymentResponse.Create("paymentMeanBrand=MAESTRO");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(PaymentType.MAESTRO, result.PaymentMeanBrand);
+            Assert.AreEqual(PaymentBrand.MAESTRO, result.PaymentMeanBrand);
         }
 
         [TestMethod]
@@ -315,7 +315,7 @@ namespace OmniKassa.Tests
             var result = PaymentResponse.Create("paymentMeanBrand=MASTERCARD");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(PaymentType.MASTERCARD, result.PaymentMeanBrand);
+            Assert.AreEqual(PaymentBrand.MASTERCARD, result.PaymentMeanBrand);
         }
 
         [TestMethod]
@@ -324,7 +324,7 @@ namespace OmniKassa.Tests
             var result = PaymentResponse.Create("paymentMeanBrand=REMBOURS");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(PaymentType.REMBOURS, result.PaymentMeanBrand);
+            Assert.AreEqual(PaymentBrand.REMBOURS, result.PaymentMeanBrand);
         }
 
         [TestMethod]
@@ -333,7 +333,7 @@ namespace OmniKassa.Tests
             var result = PaymentResponse.Create("paymentMeanBrand=VISA");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(PaymentType.VISA, result.PaymentMeanBrand);
+            Assert.AreEqual(PaymentBrand.VISA, result.PaymentMeanBrand);
         }
 
         [TestMethod]
@@ -342,7 +342,7 @@ namespace OmniKassa.Tests
             var result = PaymentResponse.Create("paymentMeanBrand=VPAY");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(PaymentType.VPAY, result.PaymentMeanBrand);
+            Assert.AreEqual(PaymentBrand.VPAY, result.PaymentMeanBrand);
         }
 
         [TestMethod]
@@ -351,7 +351,7 @@ namespace OmniKassa.Tests
             var result = PaymentResponse.Create("paymentMeanBrand=FOO");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(PaymentType.Unknown, result.PaymentMeanBrand);
+            Assert.AreEqual(PaymentBrand.Unknown, result.PaymentMeanBrand);
         }
 
         [TestMethod]
