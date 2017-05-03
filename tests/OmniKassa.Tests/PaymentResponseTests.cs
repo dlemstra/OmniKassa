@@ -65,7 +65,7 @@ namespace OmniKassa.Tests
             Assert.AreEqual(null, result.MerchantId);
             Assert.AreEqual(null, result.OrderId);
             Assert.AreEqual(PaymentBrand.Unknown, result.PaymentBrand);
-            Assert.AreEqual((ResponseCode)0, result.ResponseCode);
+            Assert.AreEqual((ResponseCode)0, result.Code);
             Assert.AreEqual(null, result.TransactionDateTime);
             Assert.AreEqual(null, result.TransactionReference);
         }
@@ -353,142 +353,142 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToAwaitingStatusReport_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToAwaitingStatusReport_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=60");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.AwaitingStatusReport, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.AwaitingStatusReport, result.Code);
             Assert.AreEqual(ResponseStatus.AwaitingStatusReport, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToCancelled_17_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToCancelled_17_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=17");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Cancelled_17, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Cancelled_17, result.Code);
             Assert.AreEqual(ResponseStatus.Cancelled, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToCancelled_90_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToCancelled_90_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=90");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Cancelled_90, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Cancelled_90, result.Code);
             Assert.AreEqual(ResponseStatus.Cancelled, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToExpired_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToExpired_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=97");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Expired, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Expired, result.Code);
             Assert.AreEqual(ResponseStatus.Expired, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToReferral_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToReferral_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=02");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Referral, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Referral, result.Code);
             Assert.AreEqual(ResponseStatus.Referral, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToRefused_03_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToRefused_03_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=03");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Refused_03, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Refused_03, result.Code);
             Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToRefused_05_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToRefused_05_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=05");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Refused_05, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Refused_05, result.Code);
             Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToRefused_12_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToRefused_12_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=12");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Refused_12, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Refused_12, result.Code);
             Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToRefused_14_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToRefused_14_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=14");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Refused_14, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Refused_14, result.Code);
             Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToRefused_25_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToRefused_25_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=25");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Refused_25, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Refused_25, result.Code);
             Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToRefused_30_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToRefused_30_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=30");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Refused_30, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Refused_30, result.Code);
             Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToRefused_75_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToRefused_75_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=75");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Refused_75, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Refused_75, result.Code);
             Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToRefused_89_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToRefused_89_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=89");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Refused_89, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Refused_89, result.Code);
             Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
-        public void Create_DataWithResponseCodeSetToSuccessful_ResponseCodeIsSet()
+        public void Create_DataWithResponseCodeSetToSuccessful_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=00");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Successful, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Successful, result.Code);
             Assert.AreEqual(ResponseStatus.Successful, result.Status);
         }
 
@@ -498,7 +498,7 @@ namespace OmniKassa.Tests
             var result = PaymentResponse.Create("responseCode=FOO");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(ResponseCode.Unknown, result.ResponseCode);
+            Assert.AreEqual(ResponseCode.Unknown, result.Code);
             Assert.AreEqual(ResponseStatus.Unknown, result.Status);
         }
 

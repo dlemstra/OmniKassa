@@ -6,76 +6,35 @@ using System.Globalization;
 
 namespace OmniKassa
 {
-    /// <summary>
-    /// Encapsulates the response that was received from OmniKassa.
-    /// </summary>
-    public sealed class PaymentResponse : IPaymentResponse
+    internal sealed class PaymentResponse : IPaymentResponse
     {
-        /// <summary>
-        /// Gets or sets the final amount of a transaction (debit or credit) or amount of an operation(refund, cancellation, etc.).
-        /// </summary>
         public decimal Amount { get; set; }
 
-        /// <summary>
-        /// Gets or sets the dentifier of the authorisation provided by the acquirer.Configured by the merchant/webshop for manual authorisation.
-        /// </summary>
         public string AuthorisationId { get; set; }
 
-        /// <summary>
-        /// Gets or sets the number of days after authorisation of a credit card transaction after which automatic validation of the transaction follows.
-        /// </summary>
         public int? CaptureDay { get; set; }
 
-        /// <summary>
-        /// Gets or sets the mode that can be used to indicate that the user of the Rabo OmniKassa dashboard must manually validate credit card
-        /// transactions after the automatic authorisation of this transaction. (This is in contrast to the standard credit card transaction processing
-        /// procedure, in which validation is automatic after authorisation.)
-        /// </summary>
         public string CaptureMode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the currency of the amount.
-        /// </summary>
         public CurrencyCode CurrencyCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets version number of the secret key. Can be found on the Rabo OmniKassa Downloadsite.
-        /// </summary>
         public int KeyVersion { get; set; }
 
-        /// <summary>
-        /// Gets or sets the hidden Primary Account Number.
-        /// </summary>
         public string MaskedPan { get; set; }
 
-        /// <summary>
-        /// Gets or sets the identifier of the merchant/webshop.
-        /// </summary>
         public string MerchantId { get; set; }
 
-        /// <summary>
-        /// Gets or sets an open field that can be used to link the identification of the order in the webshop to the payment in the Rabo OmniKassa.
-        /// </summary>
         public string OrderId { get; set; }
 
-        /// <summary>
-        /// Gets or sets the brand name of payment method the customer has selected.
-        /// </summary>
         public PaymentBrand PaymentBrand { get; set; }
 
-        /// <summary>
-        /// Gets or sets the response code for a payment request.
-        /// </summary>
-        public ResponseCode ResponseCode { get; set; }
+        public ResponseCode Code { get; set; }
 
-        /// <summary>
-        /// Gets the response status for a payment request.
-        /// </summary>
         public ResponseStatus Status
         {
             get
             {
-                switch (ResponseCode)
+                switch (Code)
                 {
                     case ResponseCode.AwaitingStatusReport:
                         return ResponseStatus.AwaitingStatusReport;
@@ -103,19 +62,11 @@ namespace OmniKassa
             }
         }
 
-        /// <summary>
-        /// Gets or sets the transaction time. If the payment is sent to the acquirer for authorisation: date/time in the Rabo OmniKassa server
-        /// at which the payment is sent to the acquirer, in the merchant/webshop's time zone. Otherwise: date and time at which the Rabo OmniKassa
-        /// response codeis generated on the Rabo OmniKassa server.
-        /// </summary>
         public DateTime? TransactionDateTime { get; set; }
 
-        /// <summary>
-        /// Gets or sets the identifier of the transaction.
-        /// </summary>
         public string TransactionReference { get; set; }
 
-        internal static PaymentResponse Create(string data)
+        public static PaymentResponse Create(string data)
         {
             if (string.IsNullOrEmpty(data))
                 return null;
@@ -246,7 +197,7 @@ namespace OmniKassa
                     OrderId = value;
                     break;
                 case "responseCode":
-                    ResponseCode = ToResponseCode(value);
+                    Code = ToResponseCode(value);
                     break;
                 case "paymentMeanBrand":
                     PaymentBrand = ToEnum(value, PaymentBrand.Unknown);

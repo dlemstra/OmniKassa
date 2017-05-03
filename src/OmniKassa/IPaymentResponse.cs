@@ -65,7 +65,7 @@ namespace OmniKassa
         /// <summary>
         /// Gets the response code for a payment request.
         /// </summary>
-        ResponseCode ResponseCode { get; }
+        ResponseCode Code { get; }
 
         /// <summary>
         /// Gets the response status for a payment request.
