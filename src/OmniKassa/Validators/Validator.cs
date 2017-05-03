@@ -16,10 +16,5 @@ namespace OmniKassa
         {
             throw new InvalidOperationException($"{message}{Environment.NewLine}Expected value: {expectedValue}.{Environment.NewLine}Actual value: {actualValue}.");
         }
-
-        protected static void ThrowNullException(string name)
-        {
-            ThrowException($"The value for {name} should not be null.");
-        }
     }
 }

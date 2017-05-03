@@ -35,7 +35,7 @@ namespace OmniKassa
         public void IsNotNullOrWhiteSpace()
         {
             if (Value == null)
-                ThrowNullException(Name);
+                ThrowException($"The value for {Name} should not be null.");
 
             if (Value.Length == 0)
                 ThrowException($"The value for {Name} should not be empty.");
