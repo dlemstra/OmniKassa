@@ -4,7 +4,7 @@
 namespace OmniKassa
 {
     /// <summary>
-    /// Encapsulates the the payment brands.
+    /// Encapsulates the payment brands.
     /// </summary>
     public enum PaymentBrand
     {

@@ -11,7 +11,7 @@ namespace OmniKassa
     public interface IWebHelper : IDisposable
     {
         /// <summary>
-        /// Post the data to the specified url and return the response.
+        /// Posts the data to the specified url and returns the response.
         /// </summary>
         /// <param name="uri">The url.</param>
         /// <param name="postData">The data to post.</param>
