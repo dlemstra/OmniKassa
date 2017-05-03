@@ -24,7 +24,7 @@ namespace OmniKassa.Tests
 
         public static void ThrowsArgumentNullException(string paramName, Action action)
         {
-            ArgumentException exception = Throws<ArgumentNullException>($"Value cannot be null.", action);
+            ArgumentException exception = Throws<ArgumentNullException>(action);
             Assert.AreEqual(paramName, exception.ParamName);
         }
 
