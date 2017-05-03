@@ -1,14 +1,11 @@
 ﻿// Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
 // Licensed under the MIT License.
 
-using System;
-
 namespace OmniKassa
 {
     /// <summary>
     /// Encapsulates the response code.
     /// </summary>
-    [Flags]
     public enum ResponseCode
     {
         /// <summary>
@@ -20,11 +17,6 @@ namespace OmniKassa
         /// Awaiting status report = 60.
         /// </summary>
         AwaitingStatusReport = 2,
-
-        /// <summary>
-        /// Cancelled.
-        /// </summary>
-        Cancelled = Cancelled_17 | Cancelled_90,
 
         /// <summary>
         /// Cancelled = 17.
@@ -45,11 +37,6 @@ namespace OmniKassa
         /// Referral = 02.
         /// </summary>
         Referral = 32,
-
-        /// <summary>
-        /// Refused.
-        /// </summary>
-        Refused = Refused_03 | Refused_05 | Refused_12 | Refused_14 | Refused_25 | Refused_30 | Refused_75 | Refused_89,
 
         /// <summary>
         /// Refused = 03.

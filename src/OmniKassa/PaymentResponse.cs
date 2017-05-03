@@ -69,6 +69,41 @@ namespace OmniKassa
         public ResponseCode ResponseCode { get; set; }
 
         /// <summary>
+        /// Gets the response status for a payment request.
+        /// </summary>
+        public ResponseStatus Status
+        {
+            get
+            {
+                switch (ResponseCode)
+                {
+                    case ResponseCode.AwaitingStatusReport:
+                        return ResponseStatus.AwaitingStatusReport;
+                    case ResponseCode.Cancelled_17:
+                    case ResponseCode.Cancelled_90:
+                        return ResponseStatus.Cancelled;
+                    case ResponseCode.Expired:
+                        return ResponseStatus.Expired;
+                    case ResponseCode.Referral:
+                        return ResponseStatus.Referral;
+                    case ResponseCode.Refused_03:
+                    case ResponseCode.Refused_05:
+                    case ResponseCode.Refused_12:
+                    case ResponseCode.Refused_14:
+                    case ResponseCode.Refused_25:
+                    case ResponseCode.Refused_30:
+                    case ResponseCode.Refused_75:
+                    case ResponseCode.Refused_89:
+                        return ResponseStatus.Refused;
+                    case ResponseCode.Successful:
+                        return ResponseStatus.Successful;
+                    default:
+                        return ResponseStatus.Unknown;
+                }
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the transaction time. If the payment is sent to the acquirer for authorisation: date/time in the Rabo OmniKassa server
         /// at which the payment is sent to the acquirer, in the merchant/webshop's time zone. Otherwise: date and time at which the Rabo OmniKassa
         /// response codeis generated on the Rabo OmniKassa server.

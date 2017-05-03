@@ -67,6 +67,7 @@
     <Compile Include="IPaymentResponse.cs" />
     <Compile Include="IWebHelper.cs" />
     <Compile Include="Kassa.cs" />
+    <Compile Include="ResponseStatus.cs" />
     <Compile Include="TestKassaConfiguration.cs" />
     <Compile Include="KassaConfiguration.cs" />
     <Compile Include="LanguageCode.cs" />

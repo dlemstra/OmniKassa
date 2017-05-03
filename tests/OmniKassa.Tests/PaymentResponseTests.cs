@@ -359,8 +359,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.AwaitingStatusReport, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsFalse(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.AwaitingStatusReport, result.Status);
         }
 
         [TestMethod]
@@ -370,8 +369,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Cancelled_17, result.ResponseCode);
-            Assert.IsTrue(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsFalse(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Cancelled, result.Status);
         }
 
         [TestMethod]
@@ -381,8 +379,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Cancelled_90, result.ResponseCode);
-            Assert.IsTrue(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsFalse(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Cancelled, result.Status);
         }
 
         [TestMethod]
@@ -392,8 +389,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Expired, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsFalse(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Expired, result.Status);
         }
 
         [TestMethod]
@@ -403,8 +399,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Referral, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsFalse(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Referral, result.Status);
         }
 
         [TestMethod]
@@ -414,8 +409,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Refused_03, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsTrue(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
@@ -425,8 +419,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Refused_05, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsTrue(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
@@ -436,8 +429,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Refused_12, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsTrue(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
@@ -447,8 +439,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Refused_14, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsTrue(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
@@ -458,8 +449,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Refused_25, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsTrue(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
@@ -469,8 +459,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Refused_30, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsTrue(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
@@ -480,8 +469,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Refused_75, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsTrue(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
@@ -491,8 +479,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Refused_89, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsTrue(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Refused, result.Status);
         }
 
         [TestMethod]
@@ -502,8 +489,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Successful, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsFalse(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Successful, result.Status);
         }
 
         [TestMethod]
@@ -513,8 +499,7 @@ namespace OmniKassa.Tests
 
             Assert.IsNotNull(result);
             Assert.AreEqual(ResponseCode.Unknown, result.ResponseCode);
-            Assert.IsFalse(ResponseCode.Cancelled.HasFlag(result.ResponseCode));
-            Assert.IsFalse(ResponseCode.Refused.HasFlag(result.ResponseCode));
+            Assert.AreEqual(ResponseStatus.Unknown, result.Status);
         }
 
         [TestMethod]

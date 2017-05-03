@@ -68,6 +68,11 @@ namespace OmniKassa
         ResponseCode ResponseCode { get; }
 
         /// <summary>
+        /// Gets the response status for a payment request.
+        /// </summary>
+        ResponseStatus Status { get; }
+
+        /// <summary>
         /// Gets the transaction time. If the payment is sent to the acquirer for authorisation: date/time in the Rabo OmniKassa server
         /// at which the payment is sent to the acquirer, in the merchant/webshop's time zone. Otherwise: date and time at which the Rabo OmniKassa
         /// response code is generated on the Rabo OmniKassa server.
