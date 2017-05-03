@@ -88,10 +88,7 @@ namespace OmniKassa
         {
             _builder.Append("|currencyCode=");
 
-            string code = ((int)_request.CurrencyCode).ToString();
-            if (code.Length == 2)
-                code = "0" + code;
-
+            string code = ((int)_request.CurrencyCode).ToString("000", CultureInfo.InvariantCulture);
             _builder.Append(code);
         }
 

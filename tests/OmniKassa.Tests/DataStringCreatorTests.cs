@@ -18,7 +18,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=", result);
         }
 
         [TestMethod]
@@ -32,7 +32,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=Merchant|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=", result);
+            Assert.AreEqual("merchantId=Merchant|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=", result);
         }
 
         [TestMethod]
@@ -46,7 +46,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=15|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=", result);
+            Assert.AreEqual("merchantId=|keyVersion=15|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=", result);
         }
 
         [TestMethod]
@@ -60,7 +60,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=4242|currencyCode=0|normalReturnUrl=|transactionReference=", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=4242|currencyCode=000|normalReturnUrl=|transactionReference=", result);
         }
 
         [TestMethod]
@@ -214,7 +214,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=https://www.github.com/|transactionReference=", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=https://www.github.com/|transactionReference=", result);
         }
 
         [TestMethod]
@@ -228,7 +228,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=Reference", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=Reference", result);
         }
 
         [TestMethod]
@@ -242,7 +242,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=|orderId=Order", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=|orderId=Order", result);
         }
 
         [TestMethod]
@@ -256,7 +256,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=|automaticResponseUrl=https://www.github.com/", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=|automaticResponseUrl=https://www.github.com/", result);
         }
 
         [TestMethod]
@@ -270,7 +270,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=|customerLanguage=CS", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=|customerLanguage=CS", result);
         }
 
         [TestMethod]
@@ -284,7 +284,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=", result);
         }
 
         [TestMethod]
@@ -298,7 +298,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=|paymentMeanBrandList=IDEAL", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=|paymentMeanBrandList=IDEAL", result);
         }
 
         [TestMethod]
@@ -312,7 +312,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=|paymentMeanBrandList=IDEAL,MASTERCARD,VISA", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=|paymentMeanBrandList=IDEAL,MASTERCARD,VISA", result);
         }
 
         [TestMethod]
@@ -326,7 +326,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=|expirationDate=2010-05-10T16:10:15", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=|expirationDate=2010-05-10T16:10:15", result);
         }
 
         [TestMethod]
@@ -340,7 +340,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=|captureDay=42", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=|captureDay=42", result);
         }
 
         [TestMethod]
@@ -354,7 +354,7 @@ namespace OmniKassa.Tests
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=0|normalReturnUrl=|transactionReference=|captureMode=VALIDATION", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=|captureMode=VALIDATION", result);
         }
     }
 }
