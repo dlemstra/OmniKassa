@@ -71,8 +71,9 @@ namespace OmniKassa
             if (_request.CaptureDay == null)
                 return;
 
+            string day = ((int)_request.CaptureDay).ToString("00", CultureInfo.InvariantCulture);
             _builder.Append("|captureDay=");
-            _builder.Append(_request.CaptureDay);
+            _builder.Append(day);
         }
 
         private void AddCaptureMode()

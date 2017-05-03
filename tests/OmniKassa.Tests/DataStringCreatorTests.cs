@@ -335,12 +335,12 @@ namespace OmniKassa.Tests
             var configuration = new KassaConfiguration();
             var request = new PaymentRequest()
             {
-                CaptureDay = 42
+                CaptureDay = 4
             };
 
             var result = DataString.Create(configuration, request);
 
-            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=|captureDay=42", result);
+            Assert.AreEqual("merchantId=|keyVersion=1|amount=0|currencyCode=000|normalReturnUrl=|transactionReference=|captureDay=04", result);
         }
 
         [TestMethod]
