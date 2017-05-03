@@ -64,8 +64,7 @@ namespace OmniKassa
         /// <summary>
         /// Gets a list of payment methods from which the customer can choose. If using the register services INCASSO(direct debit),
         /// ACCEPTGIRO(giro collection form) and REMBOURS(cash on delivery), these payment methods must always be included in
-        /// the list. Brand names of payment methods must be entered in all caps. The order of names in this field determines the order
-        /// the methods are presented to your customer.
+        /// the list. The order of names in this field determines the order the methods are presented to your customer.
         /// [Optional]
         /// </summary>
         IEnumerable<PaymentBrand> PaymentBrands { get; }
