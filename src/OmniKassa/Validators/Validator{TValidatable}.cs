@@ -3,9 +3,9 @@
 
 namespace OmniKassa
 {
-    internal abstract class Validator<Type> : Validator
+    internal abstract class Validator<TValidatable> : Validator
     {
-        protected Validator(string name, Type value)
+        protected Validator(string name, TValidatable value)
         {
             Name = name;
             Value = value;
@@ -13,6 +13,6 @@ namespace OmniKassa
 
         protected string Name { get; }
 
-        protected Type Value { get; }
+        protected TValidatable Value { get; }
     }
 }

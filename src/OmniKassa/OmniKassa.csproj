@@ -84,7 +84,7 @@
     <Compile Include="Validators\PaymentResponseValidator.cs" />
     <Compile Include="Validators\StringValidator.cs" />
     <Compile Include="Validators\Validator.cs" />
-    <Compile Include="Validators\Validator{Type}.cs" />
+    <Compile Include="Validators\Validator{TValidatable}.cs" />
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\..\OmniKassa.ruleset">
