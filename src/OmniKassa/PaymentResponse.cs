@@ -110,10 +110,10 @@ namespace OmniKassa
             return response;
         }
 
-        private static int ToAmount(string value)
+        private static decimal ToAmount(string value)
         {
             int amount = ToInt(value);
-            return amount / 100;
+            return amount / 100M;
         }
 
         private static CurrencyCode ToCurrencyCode(string value)

@@ -75,10 +75,10 @@ namespace OmniKassa.Tests
         [TestMethod]
         public void Create_DataWithMultipleValUes_PropertiesAreSet()
         {
-            var result = PaymentResponse.Create("amount=500|keyVersion=6|maskedPan=mask3d");
+            var result = PaymentResponse.Create("amount=542|keyVersion=6|maskedPan=mask3d");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(5.0m, result.Amount);
+            Assert.AreEqual(5.42m, result.Amount);
             Assert.AreEqual(6, result.KeyVersion);
             Assert.AreEqual("mask3d", result.MaskedPan);
         }
@@ -86,20 +86,20 @@ namespace OmniKassa.Tests
         [TestMethod]
         public void Create_DataWithAmount_AmountIsSet()
         {
-            var result = PaymentResponse.Create("amount=500");
+            var result = PaymentResponse.Create("amount=542");
 
             Assert.IsNotNull(result);
-            Assert.AreEqual(5.0m, result.Amount);
+            Assert.AreEqual(5.42m, result.Amount);
         }
 
         [TestMethod]
         public void Create_DataWithAmountInYen_AmountIsNotDevided()
         {
-            var result = PaymentResponse.Create("currencyCode=392|amount=500");
+            var result = PaymentResponse.Create("currencyCode=392|amount=542");
 
             Assert.IsNotNull(result);
             Assert.AreEqual(CurrencyCode.JapaneseYen, result.CurrencyCode);
-            Assert.AreEqual(500m, result.Amount);
+            Assert.AreEqual(542m, result.Amount);
         }
 
         [TestMethod]
