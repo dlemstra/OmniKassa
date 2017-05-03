@@ -60,7 +60,7 @@ namespace OmniKassa
         /// <summary>
         /// Gets the brand name of payment method the customer has selected.
         /// </summary>
-        PaymentBrand PaymentMeanBrand { get; }
+        PaymentBrand PaymentBrand { get; }
 
         /// <summary>
         /// Gets the response code for a payment request.

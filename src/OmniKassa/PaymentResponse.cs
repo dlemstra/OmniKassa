@@ -61,7 +61,7 @@ namespace OmniKassa
         /// <summary>
         /// Gets or sets the brand name of payment method the customer has selected.
         /// </summary>
-        public PaymentBrand PaymentMeanBrand { get; set; }
+        public PaymentBrand PaymentBrand { get; set; }
 
         /// <summary>
         /// Gets or sets the response code for a payment request.
@@ -214,7 +214,7 @@ namespace OmniKassa
                     ResponseCode = ToResponseCode(value);
                     break;
                 case "paymentMeanBrand":
-                    PaymentMeanBrand = ToEnum(value, PaymentBrand.Unknown);
+                    PaymentBrand = ToEnum(value, PaymentBrand.Unknown);
                     break;
                 case "transactionDateTime":
                     TransactionDateTime = ToDateTime(value);
