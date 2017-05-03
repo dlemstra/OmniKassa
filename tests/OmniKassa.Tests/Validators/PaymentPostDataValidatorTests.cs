@@ -97,8 +97,13 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Validate_InterfaceVersionIsInvalid_ThrowsException()
+        public void Validate_InterfaceVersionIsInvalid_ThrowsNoException()
         {
+            /*
+             * It appears that the api can send a V2 response when our request
+             * was V1 so this should not throw an exception.
+             */
+
             PaymentPostData postData = new PaymentPostData()
             {
                 Data = "data",
@@ -106,10 +111,7 @@ namespace OmniKassa.Tests
                 Seal = _expectedSeal,
             };
 
-            ExceptionAssert.Throws<InvalidOperationException>($"The interface version is invalid.{Environment.NewLine}Expected value: HP_1.0.", () =>
-            {
-                PaymentPostDataValidator.Validate(_configuration, postData);
-            });
+            PaymentPostDataValidator.Validate(_configuration, postData);
         }
 
         [TestMethod]

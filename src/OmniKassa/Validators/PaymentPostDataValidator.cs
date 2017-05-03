@@ -33,14 +33,7 @@ namespace OmniKassa
         private void Validate()
         {
             ValidateData();
-            ValidateInterfaceVersion();
             ValidateSeal();
-        }
-
-        private void ValidateInterfaceVersion()
-        {
-            if (_postData.InterfaceVersion != KassaConfiguration.InterfaceVersion)
-                ThrowException("The interface version is invalid.", KassaConfiguration.InterfaceVersion, _postData.InterfaceVersion);
         }
 
         private void ValidateData()
