@@ -35,6 +35,12 @@
     <DocumentationFile>bin\Release\OmniKassa.XML</DocumentationFile>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\OmniKassa.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -87,6 +93,9 @@
     <AdditionalFiles Include="..\..\stylecop.json">
       <Link>stylecop.json</Link>
     </AdditionalFiles>
+    <None Include="..\..\OmniKassa.snk">
+      <Link>OmniKassa.snk</Link>
+    </None>
     <None Include="OmniKassa.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
