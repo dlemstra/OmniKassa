@@ -27,6 +27,7 @@ namespace OmniKassa
         private void Validate()
         {
             ValidateAmount();
+            ValidateAutomaticResponseUrl();
             ValidateCaptureDay();
             ValidateCaptureMode();
             ValidateCurrencyCode();
@@ -41,6 +42,16 @@ namespace OmniKassa
         {
             if (_request.CurrencyCode == CurrencyCode.Unknown)
                 ThrowException($"The {nameof(_request.CurrencyCode)} should be set.");
+        }
+
+        private void ValidateAutomaticResponseUrl()
+        {
+            if (_request.AutomaticResponseUrl == null)
+                return;
+
+            StringValidator validator = new StringValidator(nameof(_request.AutomaticResponseUrl), _request.AutomaticResponseUrl);
+            validator.DoesNotContainSeparator();
+            validator.IsNotLongerThan(512);
         }
 
         private void ValidateAmount()
@@ -112,6 +123,7 @@ namespace OmniKassa
             StringValidator validator = new StringValidator(nameof(_request.ReturnUrl), _request.ReturnUrl);
             validator.IsNotNullOrWhiteSpace();
             validator.DoesNotContainSeparator();
+            validator.IsNotLongerThan(512);
         }
 
         private void ValidateTransactionReference()

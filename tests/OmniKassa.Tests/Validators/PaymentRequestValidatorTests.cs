@@ -118,6 +118,43 @@ namespace OmniKassa.Tests.Validators
         }
 
         [TestMethod]
+        public void Validate_AutomaticResponseUrlContainsSeparator_ThrowsException()
+        {
+            PaymentRequest request = new PaymentRequest()
+            {
+                Amount = 15.95m,
+                AutomaticResponseUrl = new Uri("https://github.com/?a=|"),
+                CurrencyCode = CurrencyCode.Euro,
+                ReturnUrl = new Uri("https://github.com"),
+                TransactionReference = "1234"
+            };
+
+            ExceptionAssert.ThrowsSeparatorValidationException(nameof(request.AutomaticResponseUrl), () =>
+            {
+                PaymentRequestValidator.Validate(request);
+            });
+        }
+
+        [TestMethod]
+        public void Validate_AutomaticResponseUrlIsLongerThanMaxLength_ThrowsException()
+        {
+            PaymentRequest request = new PaymentRequest()
+            {
+                Amount = 15.95m,
+                AutomaticResponseUrl = new Uri("https://foor.bar/" + new string('x', 496)),
+                CurrencyCode = CurrencyCode.Euro,
+                ReturnUrl = new Uri("https://www.github.com"),
+                TransactionReference = "1234",
+                CaptureDay = 0
+            };
+
+            ExceptionAssert.ThrowsLengthValidationException(nameof(request.AutomaticResponseUrl), 512, () =>
+            {
+                PaymentRequestValidator.Validate(request);
+            });
+        }
+
+        [TestMethod]
         public void Validate_CaptureDayIsZero_ThrowsException()
         {
             PaymentRequest request = new PaymentRequest()
@@ -393,6 +430,23 @@ namespace OmniKassa.Tests.Validators
             };
 
             ExceptionAssert.ThrowsSeparatorValidationException(nameof(request.ReturnUrl), () =>
+            {
+                PaymentRequestValidator.Validate(request);
+            });
+        }
+
+        [TestMethod]
+        public void Validate_ReturnUrlIsLongerThanMaxLength_ThrowsException()
+        {
+            PaymentRequest request = new PaymentRequest()
+            {
+                Amount = 15.95m,
+                CurrencyCode = CurrencyCode.Euro,
+                ReturnUrl = new Uri("https://www.github.com/" + new string('x', 490)),
+                TransactionReference = "1234",
+            };
+
+            ExceptionAssert.ThrowsLengthValidationException(nameof(request.ReturnUrl), 512, () =>
             {
                 PaymentRequestValidator.Validate(request);
             });
