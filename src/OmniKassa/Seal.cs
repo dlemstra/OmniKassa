@@ -1,7 +1,5 @@
-﻿// <copyright file="Seal.cs" company="Dirk Lemstra">
-// Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
+﻿// Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
 // Licensed under the MIT License.
-// </copyright>
 
 using System.Diagnostics;
 using System.Security.Cryptography;
