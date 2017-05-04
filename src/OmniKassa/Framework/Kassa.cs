@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Specialized;
+using System.Text;
 using System.Web;
 
 namespace OmniKassa
@@ -55,10 +56,37 @@ namespace OmniKassa
                 Seal = responseData["Seal"],
             };
 
-            using (WebHelper httpHelper = new WebHelper(postData))
+            using (WebHelper webHelper = new WebHelper(postData))
             {
-                return GetResponse(httpHelper);
+                return GetResponse(webHelper);
             }
+        }
+
+        internal string GetPaymentHtml(IPaymentRequest request, IWebHelper webHelper)
+        {
+            if (webHelper == null)
+                throw new ArgumentNullException(nameof(webHelper));
+
+            if (request == null)
+                throw new ArgumentNullException(nameof(request));
+
+            IPaymentPostData postData = CreatePostData(request);
+
+            byte[] responseData = webHelper.PostData(Configuration.Url, postData);
+            if (responseData == null)
+                return null;
+
+            return Encoding.UTF8.GetString(responseData);
+        }
+
+        internal IPaymentResponse GetResponse(IWebHelper webHelper)
+        {
+            if (webHelper == null)
+                throw new ArgumentNullException(nameof(webHelper));
+
+            IPaymentPostData postData = webHelper.GetPostData();
+
+            return GetResponse(postData);
         }
     }
 }
