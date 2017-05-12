@@ -1,6 +1,8 @@
 ﻿// Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
 // Licensed under the MIT License.
 
+#if NET45
+
 using System;
 using System.Text;
 
@@ -44,3 +46,5 @@ namespace OmniKassa.Tests
         }
     }
 }
+
+#endif

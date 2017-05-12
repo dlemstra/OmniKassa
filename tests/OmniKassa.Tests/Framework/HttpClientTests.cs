@@ -1,6 +1,8 @@
 ﻿// Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
 // Licensed under the MIT License.
 
+#if NET45
+
 using System.Collections.Specialized;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -47,3 +49,5 @@ namespace OmniKassa.Tests
         }
     }
 }
+
+#endif

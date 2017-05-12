@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net35</TargetFramework>
+    <TargetFrameworks>netstandard1.3;net35</TargetFrameworks>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>D:\OmniKassa\OmniKassa.snk</AssemblyOriginatorKeyFile>
     <Version>1.0.0.1-alpha1</Version>
@@ -44,9 +44,4 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Update="Framework\HttpClient.cs">
-      <SubType>Component</SubType>
-    </Compile>
-  </ItemGroup>
 </Project>

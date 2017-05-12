@@ -1,6 +1,8 @@
 ﻿// Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
 // Licensed under the MIT License.
 
+#if NET35
+
 using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
@@ -48,3 +50,5 @@ namespace OmniKassa
         }
     }
 }
+
+#endif

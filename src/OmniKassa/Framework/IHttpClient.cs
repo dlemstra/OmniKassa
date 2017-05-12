@@ -1,6 +1,8 @@
 ﻿// Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
 // Licensed under the MIT License.
 
+#if NET35
+
 using System;
 
 namespace OmniKassa
@@ -12,3 +14,5 @@ namespace OmniKassa
         IPaymentPostData GetPostData();
     }
 }
+
+#endif

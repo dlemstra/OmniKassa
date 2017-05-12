@@ -1,6 +1,8 @@
 ﻿// Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
 // Licensed under the MIT License.
 
+#if NET35
+
 using System.Collections.Specialized;
 using System.Web;
 
@@ -33,3 +35,5 @@ namespace OmniKassa
         IPaymentResponse GetResponse(NameValueCollection responseData);
     }
 }
+
+#endif
