@@ -8,15 +8,15 @@ using System.Net;
 
 namespace OmniKassa
 {
-    internal sealed class WebHelper : WebClient, IWebHelper
+    internal sealed class HttpClient : WebClient, IHttpClient
     {
         private readonly IPaymentPostData _postData;
 
-        public WebHelper()
+        public HttpClient()
         {
         }
 
-        public WebHelper(IPaymentPostData postData)
+        public HttpClient(IPaymentPostData postData)
         {
             Debug.Assert(postData != null);
 

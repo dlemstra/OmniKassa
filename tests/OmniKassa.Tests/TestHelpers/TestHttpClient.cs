@@ -6,17 +6,17 @@ using System.Text;
 
 namespace OmniKassa.Tests
 {
-    public sealed class TestWebHelper : IWebHelper
+    public sealed class TestHttpClient : IHttpClient
     {
         private IPaymentPostData _postData;
         private byte[] _response;
 
-        public TestWebHelper(IPaymentPostData postData)
+        public TestHttpClient(IPaymentPostData postData)
         {
             _postData = postData;
         }
 
-        public TestWebHelper(string response)
+        public TestHttpClient(string response)
         {
             if (response != null)
                 _response = Encoding.UTF8.GetBytes(response);

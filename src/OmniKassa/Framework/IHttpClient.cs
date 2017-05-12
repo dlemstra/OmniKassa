@@ -5,7 +5,7 @@ using System;
 
 namespace OmniKassa
 {
-    internal interface IWebHelper : IDisposable
+    internal interface IHttpClient : IDisposable
     {
         byte[] PostData(Uri uri, IPaymentPostData postData);
 

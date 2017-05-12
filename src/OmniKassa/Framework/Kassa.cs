@@ -20,9 +20,9 @@ namespace OmniKassa
         /// <returns>The HTML that should be send to the customer that wants to start a payment.</returns>
         public string GetPaymentHtml(IPaymentRequest request)
         {
-            using (WebHelper webHelper = new WebHelper())
+            using (HttpClient client = new HttpClient())
             {
-                return GetPaymentHtml(request, webHelper);
+                return GetPaymentHtml(request, client);
             }
         }
 
@@ -56,35 +56,35 @@ namespace OmniKassa
                 Seal = responseData["Seal"],
             };
 
-            using (WebHelper webHelper = new WebHelper(postData))
+            using (HttpClient client = new HttpClient(postData))
             {
-                return GetResponse(webHelper);
+                return GetResponse(client);
             }
         }
 
-        internal string GetPaymentHtml(IPaymentRequest request, IWebHelper webHelper)
+        internal string GetPaymentHtml(IPaymentRequest request, IHttpClient client)
         {
-            if (webHelper == null)
-                throw new ArgumentNullException(nameof(webHelper));
+            if (client == null)
+                throw new ArgumentNullException(nameof(client));
 
             if (request == null)
                 throw new ArgumentNullException(nameof(request));
 
             IPaymentPostData postData = CreatePostData(request);
 
-            byte[] responseData = webHelper.PostData(Configuration.Url, postData);
+            byte[] responseData = client.PostData(Configuration.Url, postData);
             if (responseData == null)
                 return null;
 
             return Encoding.UTF8.GetString(responseData);
         }
 
-        internal IPaymentResponse GetResponse(IWebHelper webHelper)
+        internal IPaymentResponse GetResponse(IHttpClient client)
         {
-            if (webHelper == null)
-                throw new ArgumentNullException(nameof(webHelper));
+            if (client == null)
+                throw new ArgumentNullException(nameof(client));
 
-            IPaymentPostData postData = webHelper.GetPostData();
+            IPaymentPostData postData = client.GetPostData();
 
             return GetResponse(postData);
         }

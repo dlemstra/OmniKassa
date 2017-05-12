@@ -43,7 +43,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Framework\WebHelper.cs">
+    <Compile Update="Framework\HttpClient.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

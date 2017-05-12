@@ -7,14 +7,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace OmniKassa.Tests
 {
     [TestClass]
-    public class WebHelperTests
+    public class HttpClientTests
     {
         [TestMethod]
         public void Constructor_NoArguments_GetPostDataReturnsNull()
         {
-            WebHelper webHelper = new WebHelper();
+            HttpClient client = new HttpClient();
 
-            Assert.IsNull(webHelper.GetPostData());
+            Assert.IsNull(client.GetPostData());
         }
 
         [TestMethod]
@@ -22,9 +22,9 @@ namespace OmniKassa.Tests
         {
             PaymentPostData postData = new PaymentPostData();
 
-            WebHelper webHelper = new WebHelper(postData);
+            HttpClient client = new HttpClient(postData);
 
-            Assert.AreEqual(postData, webHelper.GetPostData());
+            Assert.AreEqual(postData, client.GetPostData());
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace OmniKassa.Tests
                 Seal = "3"
             };
 
-            NameValueCollection content = WebHelper.ConvertPostData(postData);
+            NameValueCollection content = HttpClient.ConvertPostData(postData);
 
             Assert.IsNotNull(content);
             Assert.AreEqual(3, content.Count);
