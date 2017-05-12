@@ -1,116 +1,31 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6777B750-4EBA-49C2-8156-93BD3B32DB27}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OmniKassa</RootNamespace>
-    <AssemblyName>OmniKassa</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFramework>net35</TargetFramework>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>D:\OmniKassa\OmniKassa.snk</AssemblyOriginatorKeyFile>
+    <Version>1.0.0.1-alpha1</Version>
+    <Authors>Dirk Lemstra</Authors>
+    <Description>C# API for OmniKassa</Description>
+    <Copyright>Copyright 2017 Dirk Lemstra</Copyright>
+    <PackageTags>OmniKassa</PackageTags>
+    <PackageLicenseUrl>https://github.com/dlemstra/OmniKassa/blob/master/License.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/dlemstra/OmniKassa</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/dlemstra/OmniKassa/master/Logo/OmniKassa.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/dlemstra/OmniKassa</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\..\OmniKassa.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Debug\OmniKassa.XML</DocumentationFile>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net35' ">
+    <SignAssembly>True</SignAssembly>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\..\OmniKassa.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Release\OmniKassa.XML</DocumentationFile>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\..\OmniKassa.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
     <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CurrencyCode.cs" />
-    <Compile Include="DataString.cs" />
-    <Compile Include="Extensions\IPaymentRequestExtensions.cs" />
-    <Compile Include="Framework\IKassa.cs" />
-    <Compile Include="Framework\Kassa.cs" />
-    <Compile Include="Framework\WebHelper.cs">
+    <None Include="..\..\OmniKassa.snk" Link="OmniKassa.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Framework\WebHelper.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Helpers\EnumHelper.cs" />
-    <Compile Include="IKassa.cs" />
-    <Compile Include="IKassaConfiguration.cs" />
-    <Compile Include="IPaymentPostData.cs" />
-    <Compile Include="IPaymentRequest.cs" />
-    <Compile Include="IPaymentResponse.cs" />
-    <Compile Include="IWebHelper.cs" />
-    <Compile Include="Kassa.cs" />
-    <Compile Include="ResponseStatus.cs" />
-    <Compile Include="TestKassaConfiguration.cs" />
-    <Compile Include="KassaConfiguration.cs" />
-    <Compile Include="LanguageCode.cs" />
-    <Compile Include="PaymentPostData.cs" />
-    <Compile Include="PaymentRequest.cs" />
-    <Compile Include="PaymentResponse.cs" />
-    <Compile Include="PaymentBrand.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResponseCode.cs" />
-    <Compile Include="Seal.cs" />
-    <Compile Include="Validators\IntValidator.cs" />
-    <Compile Include="Validators\KassaConfigurationValidator.cs" />
-    <Compile Include="Validators\PaymentPostDataValidator.cs" />
-    <Compile Include="Validators\PaymentRequestValidator.cs" />
-    <Compile Include="Validators\PaymentResponseValidator.cs" />
-    <Compile Include="Validators\StringValidator.cs" />
-    <Compile Include="Validators\Validator.cs" />
-    <Compile Include="Validators\Validator{TValidatable}.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="..\..\OmniKassa.ruleset">
-      <Link>OmniKassa.ruleset</Link>
-    </AdditionalFiles>
-    <AdditionalFiles Include="..\..\stylecop.json">
-      <Link>stylecop.json</Link>
-    </AdditionalFiles>
-    <None Include="..\..\OmniKassa.snk">
-      <Link>OmniKassa.snk</Link>
-    </None>
-    <None Include="OmniKassa.nuspec" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.1.0-beta001\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.1.0-beta001\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
-    <Analyzer Include="..\..\packages\StyleCop.Analyzers.1.1.0-beta001\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
