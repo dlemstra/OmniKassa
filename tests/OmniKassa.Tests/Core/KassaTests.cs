@@ -1,11 +1,14 @@
 ﻿// Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
 // Licensed under the MIT License.
 
-#if NET45
+#if NETCOREAPP1_1
 
 using System;
-using System.Collections.Specialized;
-using System.Web;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Primitives;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace OmniKassa.Tests
@@ -14,46 +17,46 @@ namespace OmniKassa.Tests
     public partial class KassaTests
     {
         [TestMethod]
-        public void GetPaymentHtml_RequestIsNull_ThrowsException()
+        public async Task GetPaymentHtml_RequestIsNull_ThrowsException()
         {
             Kassa kassa = new Kassa(_configuration);
 
-            ExceptionAssert.ThrowsArgumentNullException("request", () =>
+            await ExceptionAssert.ThrowsArgumentNullExceptionAsync("request", async () =>
             {
-                kassa.GetPaymentHtml(new HttpClient(), null);
+                await kassa.GetPaymentHtml(new HttpClient(), null);
             });
         }
 
         [TestMethod]
-        public void GetPaymentHtml_HttpClientIsNull_ThrowsException()
+        public async Task GetPaymentHtml_HttpClientIsNull_ThrowsException()
         {
             Kassa kassa = new Kassa(_configuration);
 
-            ExceptionAssert.ThrowsArgumentNullException("client", () =>
+            await ExceptionAssert.ThrowsArgumentNullExceptionAsync("client", async () =>
             {
-                kassa.GetPaymentHtml(null, new PaymentRequest());
+                await kassa.GetPaymentHtml(null, new PaymentRequest());
             });
         }
 
         [TestMethod]
-        public void GetPaymentHtml_RequestIsInvalid_ThrowsException()
+        public async Task GetPaymentHtml_RequestIsInvalid_ThrowsException()
         {
             Kassa kassa = new Kassa(_configuration);
             PaymentRequest request = new PaymentRequest();
 
-            ExceptionAssert.Throws<InvalidOperationException>("The value for Amount should be higher than 0.", () =>
+            await ExceptionAssert.ThrowsAsync<InvalidOperationException>("The value for Amount should be higher than 0.", async () =>
             {
-                kassa.GetPaymentHtml(new HttpClient(), request);
+                await kassa.GetPaymentHtml(new HttpClient(), request);
             });
         }
 
         [TestMethod]
-        public void GetPaymentHtml_HttpClientReturnsResponse_ReturnsResponse()
+        public async Task GetPaymentHtml_HttpClientReturnsResponse_ReturnsResponse()
         {
             Kassa kassa = new Kassa(_configuration);
             TestHttpClient client = new TestHttpClient("TestHttpClient");
 
-            string result = kassa.GetPaymentHtml(client, _request);
+            string result = await kassa.GetPaymentHtml(client, _request);
 
             Assert.AreEqual("TestHttpClient", result);
             Assert.AreEqual("HP_1.0", client.PostedData.InterfaceVersion);
@@ -63,35 +66,35 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void GetPaymentHtml_HttpClientReturnsNull_ReturnsNull()
+        public async Task GetPaymentHtml_HttpClientReturnsNull_ReturnsNull()
         {
             Kassa kassa = new Kassa(_configuration);
-            TestHttpClient client = new TestHttpClient((string)null);
+            TestHttpClient client = new TestHttpClient(null);
 
-            string result = kassa.GetPaymentHtml(client, _request);
+            string result = await kassa.GetPaymentHtml(client, _request);
 
             Assert.IsNull(result);
         }
 
         [TestMethod]
-        public void GetPaymentHtml_HttpClientReturnsEmptyArray_ReturnsNull()
+        public async Task GetPaymentHtml_HttpClientReturnsEmptyString_ReturnsNull()
         {
             Kassa kassa = new Kassa(_configuration);
             TestHttpClient client = new TestHttpClient(string.Empty);
 
-            string result = kassa.GetPaymentHtml(client, _request);
+            string result = await kassa.GetPaymentHtml(client, _request);
 
             Assert.AreEqual(string.Empty, result);
         }
 
         [TestMethod]
-        public void GetResponse_HttpRequestIsNull_ThrowsException()
+        public async Task GetResponse_HttpRequestIsNull_ThrowsException()
         {
             Kassa kassa = new Kassa(_configuration);
 
-            ExceptionAssert.ThrowsArgumentNullException("request", () =>
+            await ExceptionAssert.ThrowsArgumentNullExceptionAsync("request", async () =>
             {
-                kassa.GetResponse((HttpRequest)null);
+                await kassa.GetResponse((HttpRequest)null);
             });
         }
 
@@ -100,7 +103,7 @@ namespace OmniKassa.Tests
         {
             Kassa kassa = new Kassa(_configuration);
 
-            IPaymentResponse response = kassa.GetResponse((NameValueCollection)null);
+            IPaymentResponse response = kassa.GetResponse((IFormCollection)null);
 
             Assert.IsNull(response);
         }
@@ -110,12 +113,12 @@ namespace OmniKassa.Tests
         {
             Kassa kassa = new Kassa(_configuration);
 
-            NameValueCollection responseData = new NameValueCollection()
+            FormCollection responseData = new FormCollection(new Dictionary<string, StringValues>
             {
-                { "Data", $"merchantId={_configuration.MerchantId}|amount=4200" },
-                { "InterfaceVersion", "HP_1.0" },
-                { "Seal", "0e14ed66182e64d1eed8623d946032648dafa6043f87fc7e4fb8eb2e40469781" }
-            };
+                { "Data", new StringValues($"merchantId={_configuration.MerchantId}|amount=4200") },
+                { "InterfaceVersion", new StringValues("HP_1.0") },
+                { "Seal", new StringValues("0e14ed66182e64d1eed8623d946032648dafa6043f87fc7e4fb8eb2e40469781") }
+            });
 
             IPaymentResponse response = kassa.GetResponse(responseData);
 
@@ -124,13 +127,13 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void GetResponse_PostedDataIsInvalid_ThrowsException()
+        public async Task GetResponse_PostedDataIsInvalid_ThrowsException()
         {
             Kassa kassa = new Kassa(_configuration);
 
-            ExceptionAssert.Throws<InvalidOperationException>("The value for Data should not be null.", () =>
+            await ExceptionAssert.ThrowsAsync<InvalidOperationException>("The value for Data should not be null.", async () =>
             {
-                kassa.GetResponse(new HttpRequest("foo", "https://bar.com", string.Empty));
+                await kassa.GetResponse(new TestHttpRequest());
             });
         }
     }

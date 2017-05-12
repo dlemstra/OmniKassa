@@ -10,13 +10,7 @@ namespace OmniKassa.Tests
 {
     public sealed class TestHttpClient : IHttpClient
     {
-        private IPaymentPostData _postData;
         private byte[] _response;
-
-        public TestHttpClient(IPaymentPostData postData)
-        {
-            _postData = postData;
-        }
 
         public TestHttpClient(string response)
         {
@@ -30,11 +24,6 @@ namespace OmniKassa.Tests
 
         public void Dispose()
         {
-        }
-
-        public IPaymentPostData GetPostData()
-        {
-            return _postData;
         }
 
         public byte[] PostData(Uri url, IPaymentPostData postData)

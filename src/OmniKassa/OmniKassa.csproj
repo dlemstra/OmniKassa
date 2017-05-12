@@ -20,6 +20,9 @@
   <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
     <Reference Include="System.Web" />
   </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="1.1.0" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="..\..\OmniKassa.snk" Link="OmniKassa.snk" />
   </ItemGroup>

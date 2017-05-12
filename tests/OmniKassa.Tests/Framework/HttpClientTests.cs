@@ -12,25 +12,7 @@ namespace OmniKassa.Tests
     public class HttpClientTests
     {
         [TestMethod]
-        public void Constructor_NoArguments_GetPostDataReturnsNull()
-        {
-            HttpClient client = new HttpClient();
-
-            Assert.IsNull(client.GetPostData());
-        }
-
-        [TestMethod]
-        public void Constructor_WithPostData_GetPostDataReturnsValue()
-        {
-            PaymentPostData postData = new PaymentPostData();
-
-            HttpClient client = new HttpClient(postData);
-
-            Assert.AreEqual(postData, client.GetPostData());
-        }
-
-        [TestMethod]
-        public void ConvertPostData_WithPostData_ReturnsFormUrlEncodedContent()
+        public void ConvertPostData_WithPostData_ReturnsNameValueCollection()
         {
             PaymentPostData postData = new PaymentPostData()
             {

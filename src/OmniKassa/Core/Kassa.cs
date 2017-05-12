@@ -1,18 +1,18 @@
 ﻿// Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
 // Licensed under the MIT License.
 
-#if NET35
+#if NETSTANDARD1_3
 
 using System;
-using System.Collections.Specialized;
-using System.Net;
+using System.Net.Http;
 using System.Text;
-using System.Web;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace OmniKassa
 {
     /// <content>
-    /// Contains the .NET 3.5 implementation.
+    /// Contains the .NET Standard 1.3 implementation.
     /// </content>
     public sealed partial class Kassa : IKassa
     {
@@ -21,11 +21,11 @@ namespace OmniKassa
         /// </summary>
         /// <param name="request">The payment request.</param>
         /// <returns>The HTML that should be send to the customer that wants to start a payment.</returns>
-        public string GetPaymentHtml(IPaymentRequest request)
+        public async Task<string> GetPaymentHtml(IPaymentRequest request)
         {
             using (HttpClient client = new HttpClient())
             {
-                return GetPaymentHtml(client, request);
+                return await GetPaymentHtml(client, request);
             }
         }
 
@@ -34,12 +34,13 @@ namespace OmniKassa
         /// </summary>
         /// <param name="request">The http request that contains the form with the response.</param>
         /// <returns>The response from the payment provider for a payment request.</returns>
-        public IPaymentResponse GetResponse(HttpRequest request)
+        public async Task<IPaymentResponse> GetResponse(HttpRequest request)
         {
             if (request == null)
                 throw new ArgumentNullException(nameof(request));
 
-            return GetResponse(request.Form);
+            IFormCollection responseData = await request.ReadFormAsync();
+            return GetResponse(responseData);
         }
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace OmniKassa
         /// </summary>
         /// <param name="responseData">The form data with the response.</param>
         /// <returns>The response from the payment provider for a payment request.</returns>
-        public IPaymentResponse GetResponse(NameValueCollection responseData)
+        public IPaymentResponse GetResponse(IFormCollection responseData)
         {
             if (responseData == null)
                 return null;
@@ -55,14 +56,14 @@ namespace OmniKassa
             PaymentPostData postData = new PaymentPostData()
             {
                 Data = responseData["Data"],
-                InterfaceVersion = responseData["InterfaceVersion"],
                 Seal = responseData["Seal"],
+                InterfaceVersion = responseData["InterfaceVersion "],
             };
 
             return GetResponse(postData);
         }
 
-        internal string GetPaymentHtml(IHttpClient client, IPaymentRequest request)
+        internal async Task<string> GetPaymentHtml(HttpClient client, IPaymentRequest request)
         {
             if (client == null)
                 throw new ArgumentNullException(nameof(client));
@@ -72,7 +73,7 @@ namespace OmniKassa
 
             IPaymentPostData postData = CreatePostData(request);
 
-            byte[] responseData = client.PostData(Configuration.Url, postData);
+            byte[] responseData = await client.PostData(Configuration.Url, postData);
             if (responseData == null)
                 return null;
 

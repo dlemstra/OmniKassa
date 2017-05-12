@@ -7,17 +7,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace OmniKassa.Tests
 {
     [ExcludeFromCodeCoverage]
-    internal static class ExceptionAssert
+    internal static partial class ExceptionAssert
     {
         public static TException Throws<TException>(string message, Action action)
            where TException : Exception
         {
             TException exception = Throws<TException>(action);
-            Assert.IsNotNull(exception.Message);
-            if (!exception.Message.StartsWith(message))
-                Assert.Fail($"The message `{exception.Message}` does not start with `{message}`.");
-
-            return exception;
+            return CheckMessage(exception, message);
         }
 
         public static void ThrowsArgumentNullException(string paramName, Action action)
@@ -83,21 +79,43 @@ namespace OmniKassa.Tests
             try
             {
                 action();
-                Assert.Fail("Exception of type {0} was not thrown.", typeof(TException).Name);
-                return null;
+                return AssertNotThrown<TException>();
             }
             catch (TException exception)
             {
-                Type type = exception.GetType();
-                if (type != typeof(TException))
-                    Assert.Fail("Exception of type {0} was not thrown an exception of type {1} was thrown.", typeof(TException).Name, type.Name);
-
-                return exception;
+                return CheckException(exception);
             }
             catch (Exception)
             {
                 throw;
             }
+        }
+
+        private static TException AssertNotThrown<TException>()
+            where TException : Exception
+        {
+            Assert.Fail("Exception of type {0} was not thrown.", typeof(TException).Name);
+            return null;
+        }
+
+        private static TException CheckException<TException>(TException exception)
+            where TException : Exception
+        {
+            Type type = exception.GetType();
+            if (type != typeof(TException))
+                Assert.Fail("Exception of type {0} was not thrown an exception of type {1} was thrown.", typeof(TException).Name, type.Name);
+
+            return exception;
+        }
+
+        private static TException CheckMessage<TException>(TException exception, string message)
+            where TException : Exception
+        {
+            Assert.IsNotNull(exception.Message);
+            if (!exception.Message.StartsWith(message))
+                Assert.Fail($"The message `{exception.Message}` does not start with `{message}`.");
+
+            return exception;
         }
     }
 }

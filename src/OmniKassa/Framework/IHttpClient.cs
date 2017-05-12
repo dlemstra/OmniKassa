@@ -10,8 +10,6 @@ namespace OmniKassa
     internal interface IHttpClient : IDisposable
     {
         byte[] PostData(Uri uri, IPaymentPostData postData);
-
-        IPaymentPostData GetPostData();
     }
 }
 

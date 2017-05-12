@@ -24,6 +24,16 @@ namespace OmniKassa
         /// </summary>
         public IKassaConfiguration Configuration { get; }
 
+        internal IPaymentResponse GetResponse(IPaymentPostData response)
+        {
+            PaymentPostDataValidator.Validate(Configuration, response);
+
+            IPaymentResponse result = PaymentResponse.Create(response.Data);
+            PaymentResponseValidator.Validate(Configuration, result);
+
+            return result;
+        }
+
         private IPaymentPostData CreatePostData(IPaymentRequest request)
         {
             PaymentRequestValidator.Validate(request);
@@ -36,16 +46,6 @@ namespace OmniKassa
                 Data = data,
                 Seal = seal,
             };
-        }
-
-        private IPaymentResponse GetResponse(IPaymentPostData response)
-        {
-            PaymentPostDataValidator.Validate(Configuration, response);
-
-            IPaymentResponse result = PaymentResponse.Create(response.Data);
-            PaymentResponseValidator.Validate(Configuration, result);
-
-            return result;
         }
     }
 }

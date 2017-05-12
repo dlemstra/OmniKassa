@@ -6,7 +6,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace OmniKassa.Tests
 {
-    /// <content/>
     [TestClass]
     public partial class KassaTests
     {
@@ -52,6 +51,38 @@ namespace OmniKassa.Tests
             Kassa kassa = new Kassa(_configuration);
 
             Assert.AreEqual(_configuration, kassa.Configuration);
+        }
+
+        [TestMethod]
+        public void GetResponse_ResponseValid_ReturnsResult()
+        {
+            Kassa kassa = new Kassa(_configuration);
+            PaymentPostData postData = new PaymentPostData()
+            {
+                Data = $"merchantId={_configuration.MerchantId}|amount=4200",
+                Seal = "0e14ed66182e64d1eed8623d946032648dafa6043f87fc7e4fb8eb2e40469781",
+            };
+
+            IPaymentResponse response = kassa.GetResponse(postData);
+
+            Assert.IsNotNull(response);
+            Assert.AreEqual(42.0m, response.Amount);
+        }
+
+        [TestMethod]
+        public void GetResponse_ResponseIsInvalid_ThrowsException()
+        {
+            Kassa kassa = new Kassa(_configuration);
+            PaymentPostData postData = new PaymentPostData()
+            {
+                Data = "test=test",
+                Seal = "seal",
+            };
+
+            ExceptionAssert.Throws<InvalidOperationException>($"The seal is invalid.{Environment.NewLine}Expected value: f5db08a8cfdc7245247e8ad08d88e12e96435ce1bd11c781ab170c80d6a4668d.", () =>
+            {
+                kassa.GetResponse(postData);
+            });
         }
     }
 }
