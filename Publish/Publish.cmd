@@ -8,8 +8,15 @@ nuget restore %solution%
 msbuild %solution% /m:4 /t:Rebuild /p:Configuration=Release
 if %errorlevel% neq 0 goto done
 
-vstest.console /inIsolation ..\tests\OmniKassa.Tests\bin\Release\OmniKassa.Tests.dll
+vstest.console /inIsolation ..\tests\OmniKassa.Tests\bin\Release\net45\OmniKassa.Tests.dll
 if %errorlevel% neq 0 goto done
+
+cd ..\tests\OmniKassa.Tests\
+
+dotnet test -f netcoreapp1.1
+if %errorlevel% neq 0 goto done
+
+cd ..\..\Publish
 
 set projectdir=..\src\OmniKassa
 
