@@ -36,6 +36,17 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
+        public void GetPaymentHtml_PaymentRequestIsNull_ThrowsException()
+        {
+            Kassa kassa = new Kassa(_configuration);
+
+            ExceptionAssert.ThrowsArgumentNullException("request", () =>
+            {
+                kassa.GetPaymentHtml(null);
+            });
+        }
+
+        [TestMethod]
         public void GetPaymentHtml_RequestIsInvalid_ThrowsException()
         {
             Kassa kassa = new Kassa(_configuration);
