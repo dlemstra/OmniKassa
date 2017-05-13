@@ -263,7 +263,7 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_DataWithPaymentMeanBrandSetToACCEPTGIRO_PaymentMeanBrandIsSet()
+        public void Create_DataWithPaymentMeanBrandSetToACCEPTGIRO_PaymentBrandIsSet()
         {
             var result = PaymentResponse.Create("paymentMeanBrand=ACCEPTGIRO");
 
@@ -272,7 +272,7 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_DataWithPaymentMeanBrandSetToBCMC_PaymentMeanBrandIsSet()
+        public void Create_DataWithPaymentMeanBrandSetToBCMC_PaymentBrandIsSet()
         {
             var result = PaymentResponse.Create("paymentMeanBrand=BCMC");
 
@@ -281,7 +281,7 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_DataWithPaymentMeanBrandSetToIDEAL_PaymentMeanBrandIsSet()
+        public void Create_DataWithPaymentMeanBrandSetToIDEAL_PaymentBrandIsSet()
         {
             var result = PaymentResponse.Create("paymentMeanBrand=IDEAL");
 
@@ -290,7 +290,7 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_DataWithPaymentMeanBrandSetToINCASSO_PaymentMeanBrandIsSet()
+        public void Create_DataWithPaymentMeanBrandSetToINCASSO_PaymentBrandIsSet()
         {
             var result = PaymentResponse.Create("paymentMeanBrand=INCASSO");
 
@@ -299,7 +299,7 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_DataWithPaymentMeanBrandSetToMAESTRO_PaymentMeanBrandIsSet()
+        public void Create_DataWithPaymentMeanBrandSetToMAESTRO_PaymentBrandIsSet()
         {
             var result = PaymentResponse.Create("paymentMeanBrand=MAESTRO");
 
@@ -308,7 +308,7 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_DataWithPaymentMeanBrandSetToMASTERCARD_PaymentMeanBrandIsSet()
+        public void Create_DataWithPaymentMeanBrandSetToMASTERCARD_PaymentBrandIsSet()
         {
             var result = PaymentResponse.Create("paymentMeanBrand=MASTERCARD");
 
@@ -317,7 +317,7 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_DataWithPaymentMeanBrandSetToREMBOURS_PaymentMeanBrandIsSet()
+        public void Create_DataWithPaymentMeanBrandSetToREMBOURS_PaymentBrandIsSet()
         {
             var result = PaymentResponse.Create("paymentMeanBrand=REMBOURS");
 
@@ -326,7 +326,7 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_DataWithPaymentMeanBrandToSetVISA_PaymentMeanBrandIsSet()
+        public void Create_DataWithPaymentMeanBrandToSetVISA_PaymentBrandIsSet()
         {
             var result = PaymentResponse.Create("paymentMeanBrand=VISA");
 
@@ -335,7 +335,7 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_DataWithPaymentMeanBrandSetToVPAY_PaymentMeanBrandIsSet()
+        public void Create_DataWithPaymentMeanBrandSetToVPAY_PaymentBrandIsSet()
         {
             var result = PaymentResponse.Create("paymentMeanBrand=VPAY");
 
@@ -344,7 +344,7 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
-        public void Create_DataWithPaymentMeanBrandSetToUnknownValue_PaymentMeanBrandIsSet()
+        public void Create_DataWithPaymentMeanBrandSetToUnknownValue_PaymentBrandIsSet()
         {
             var result = PaymentResponse.Create("paymentMeanBrand=FOO");
 
