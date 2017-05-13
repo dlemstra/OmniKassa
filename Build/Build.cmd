@@ -1,7 +1,5 @@
 @echo off
 
-cd ..
-
 set solution=OmniKassa.sln
 
 nuget restore %solution%
