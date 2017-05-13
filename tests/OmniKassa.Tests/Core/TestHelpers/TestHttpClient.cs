@@ -9,6 +9,7 @@ using System.Net.Http;
 
 namespace OmniKassa.Tests
 {
+    [ExcludeFromCodeCoverage]
     public sealed class TestHttpClient : HttpClient
     {
         private readonly TestHttpMessageHandler _handler;

@@ -12,6 +12,7 @@ using Microsoft.Extensions.Primitives;
 
 namespace OmniKassa.Tests
 {
+    [ExcludeFromCodeCoverage]
     public class TestHttpRequest : HttpRequest
     {
         public TestHttpRequest()

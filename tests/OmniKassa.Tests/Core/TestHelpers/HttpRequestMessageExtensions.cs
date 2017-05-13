@@ -8,6 +8,7 @@ using System.Net.Http;
 
 namespace OmniKassa.Tests
 {
+    [ExcludeFromCodeCoverage]
     public static class HttpRequestMessageExtensions
     {
         public static string GetPostedData(this HttpRequestMessage self)

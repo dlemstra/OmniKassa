@@ -8,6 +8,7 @@ using System.Text;
 
 namespace OmniKassa.Tests
 {
+    [ExcludeFromCodeCoverage]
     public sealed class TestHttpClient : IHttpClient
     {
         private byte[] _response;
