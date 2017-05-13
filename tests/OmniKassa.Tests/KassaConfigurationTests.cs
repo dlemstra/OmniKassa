@@ -9,6 +9,7 @@ namespace OmniKassa.Tests
     [TestClass]
     public class KassaConfigurationTests
     {
+        [TestMethod]
         public void Constructor_PropertiesAreInitialized()
         {
             KassaConfiguration configuration = new KassaConfiguration();
