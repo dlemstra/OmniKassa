@@ -250,3 +250,6 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# OmniKassa
+/Build/OpenCover.4.6.519
