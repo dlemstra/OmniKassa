@@ -24,8 +24,13 @@ namespace OmniKassa.Tests.Validators
             PaymentRequest request = new PaymentRequest()
             {
                 Amount = 15.95m,
+                CaptureDay = 2,
+                CaptureMode = "MODE",
                 CurrencyCode = CurrencyCode.Euro,
+                ExpirationDate = DateTime.UtcNow.AddDays(1),
+                PaymentBrands = new PaymentBrand[] { PaymentBrand.IDEAL },
                 ReturnUrl = new Uri("https://www.github.com"),
+                AutomaticResponseUrl = new Uri("https://www.github.com"),
                 TransactionReference = "1234"
             };
 
