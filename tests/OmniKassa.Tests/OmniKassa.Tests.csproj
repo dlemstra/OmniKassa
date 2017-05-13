@@ -1,8 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netcoreapp1.1;net45</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
     <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>D:\OmniKassa\OmniKassa.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\..\OmniKassa.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\..\OmniKassa.snk" Link="OmniKassa.snk" />

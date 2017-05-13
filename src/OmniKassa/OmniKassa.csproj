@@ -1,8 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;net35</TargetFrameworks>
-    <SignAssembly>True</SignAssembly>
-    <AssemblyOriginatorKeyFile>D:\OmniKassa\OmniKassa.snk</AssemblyOriginatorKeyFile>
     <Version>1.0.0.1-alpha1</Version>
     <Authors>Dirk Lemstra</Authors>
     <Description>C# API for OmniKassa</Description>
@@ -16,6 +14,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net35' ">
     <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\OmniKassa.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net35' ">
     <Reference Include="System.Web" />
@@ -43,6 +42,11 @@
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta001">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Framework\HttpClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
