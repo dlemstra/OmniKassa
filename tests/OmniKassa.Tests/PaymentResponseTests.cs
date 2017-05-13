@@ -353,6 +353,15 @@ namespace OmniKassa.Tests
         }
 
         [TestMethod]
+        public void Create_DataWithPaymentMeanBrandSetToEmptyString_PaymentBrandIsSet()
+        {
+            var result = PaymentResponse.Create("paymentMeanBrand=;responseCode=60");
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual(PaymentBrand.Unknown, result.PaymentBrand);
+        }
+
+        [TestMethod]
         public void Create_DataWithResponseCodeSetToAwaitingStatusReport_CodeAndStatusAreSet()
         {
             var result = PaymentResponse.Create("responseCode=60");
