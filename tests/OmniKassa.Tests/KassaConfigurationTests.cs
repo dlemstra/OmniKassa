@@ -17,7 +17,7 @@ namespace OmniKassa.Tests
             Assert.AreEqual(1, configuration.KeyVersion);
             Assert.IsNull(configuration.MerchantId);
             Assert.IsNull(configuration.SecretKey);
-            Assert.AreEqual(new Uri("https://payment-webinit.simu.omnikassa.rabobank.nl/paymentServlet"), configuration.Url);
+            Assert.AreEqual(new Uri("https://payment-webinit.omnikassa.rabobank.nl/paymentServlet"), configuration.Url);
         }
     }
 }
