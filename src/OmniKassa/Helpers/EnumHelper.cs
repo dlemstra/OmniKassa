@@ -23,9 +23,6 @@ namespace OmniKassa
         public static TEnum Parse<TEnum>(string value, TEnum defaultValue)
           where TEnum : struct, IConvertible
         {
-            if (string.IsNullOrEmpty(value))
-                return defaultValue;
-
             foreach (string name in Enum.GetNames(typeof(TEnum)))
             {
                 if (name.Equals(value, StringComparison.OrdinalIgnoreCase))
