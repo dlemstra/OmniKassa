@@ -12,14 +12,8 @@ namespace OmniKassa
 
         private PaymentPostDataValidator(IKassaConfiguration configuration, IPaymentPostData postData)
         {
-            if (configuration == null)
-                throw new ArgumentNullException(nameof(configuration));
-
-            if (postData == null)
-                throw new ArgumentNullException(nameof(postData));
-
-            _configuration = configuration;
-            _postData = postData;
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            _postData = postData ?? throw new ArgumentNullException(nameof(postData));
         }
 
         public static void Validate(IKassaConfiguration configuration, IPaymentPostData postData)

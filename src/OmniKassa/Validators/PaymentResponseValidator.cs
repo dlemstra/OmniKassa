@@ -12,14 +12,8 @@ namespace OmniKassa
 
         private PaymentResponseValidator(IKassaConfiguration configuration, IPaymentResponse response)
         {
-            if (configuration == null)
-                throw new ArgumentNullException(nameof(configuration));
-
-            if (response == null)
-                throw new ArgumentNullException(nameof(response));
-
-            _configuration = configuration;
-            _response = response;
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            _response = response ?? throw new ArgumentNullException(nameof(response));
         }
 
         public static void Validate(IKassaConfiguration configuration, IPaymentResponse response)

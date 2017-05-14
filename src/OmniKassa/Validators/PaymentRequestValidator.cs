@@ -12,10 +12,7 @@ namespace OmniKassa
 
         private PaymentRequestValidator(IPaymentRequest request)
         {
-            if (request == null)
-                throw new ArgumentNullException(nameof(request));
-
-            _request = request;
+            _request = request ?? throw new ArgumentNullException(nameof(request));
         }
 
         public static void Validate(IPaymentRequest request)
