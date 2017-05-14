@@ -36,10 +36,10 @@
     <CodeAnalysisRuleSet>..\..\OmniKassa.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\net35\.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\$(TargetFramework)\OmniKassa.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\net35\.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\$(TargetFramework)\OmniKassa.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta001">
