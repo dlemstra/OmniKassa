@@ -4,7 +4,7 @@
     <DebugType Condition="$(codecov) != ''">full</DebugType>
     <DebugType Condition="$(codecov) == ''">portable</DebugType>
     <DebugSymbols>True</DebugSymbols>
-    <Version>1.0.0.1-alpha1</Version>
+    <Version>1.0.0.1</Version>
     <Authors>Dirk Lemstra</Authors>
     <Description>C# API for OmniKassa</Description>
     <Copyright>Copyright 2017 Dirk Lemstra</Copyright>
