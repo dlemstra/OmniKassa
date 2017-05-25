@@ -4,7 +4,7 @@
     <DebugType Condition="$(codecov) != ''">full</DebugType>
     <DebugType Condition="$(codecov) == ''">portable</DebugType>
     <DebugSymbols>True</DebugSymbols>
-    <Version>1.0.0.1</Version>
+    <Version>1.0.1</Version>
     <Authors>Dirk Lemstra</Authors>
     <Description>C# API for OmniKassa</Description>
     <Copyright>Copyright 2017 Dirk Lemstra</Copyright>
@@ -45,6 +45,11 @@
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta001">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Framework\HttpClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
