@@ -1,0 +1,19 @@
+language: csharp
+solution: OmniKassa.sln
+
+sudo: required
+
+branches:
+  only:
+    - master
+
+matrix:
+  include:
+    - dotnet: 1.0.1
+      mono: none
+      dist: trusty
+
+script:
+  - dotnet restore
+  - dotnet build OmniKassa.sln -c Release
+  - dotnet test tests/OmniKassa.Tests/OmniKassa.Tests.csproj --no-build -c Release
