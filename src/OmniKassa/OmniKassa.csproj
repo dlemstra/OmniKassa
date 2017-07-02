@@ -5,6 +5,9 @@
     <DebugType Condition="$(codecov) == ''">portable</DebugType>
     <DebugSymbols>True</DebugSymbols>
     <Version>1.0.1</Version>
+    <Authors>Dirk Lemstra</Authors>
+    <Description>C# API for OmniKassa</Description>
+    <Copyright>Copyright 2017 Dirk Lemstra</Copyright>
     <PackageTags>OmniKassa</PackageTags>
     <PackageLicenseUrl>https://github.com/dlemstra/OmniKassa/blob/master/License.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/dlemstra/OmniKassa</PackageProjectUrl>
