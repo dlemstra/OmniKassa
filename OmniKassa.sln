@@ -1,11 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.4
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniKassa.Tests", "tests\OmniKassa.Tests\OmniKassa.Tests.csproj", "{CC513427-6940-4786-99C0-4AAA355C9C9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OmniKassa.Tests", "tests\OmniKassa.Tests\OmniKassa.Tests.csproj", "{CC513427-6940-4786-99C0-4AAA355C9C9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniKassa", "src\OmniKassa\OmniKassa.csproj", "{6777B750-4EBA-49C2-8156-93BD3B32DB27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OmniKassa", "src\OmniKassa\OmniKassa.csproj", "{6777B750-4EBA-49C2-8156-93BD3B32DB27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{5F1A57F7-CFB3-4DCD-9311-C6E33532FD0C}"
+	ProjectSection(SolutionItems) = preProject
+		.travis.yml = .travis.yml
+		appveyor.yml = appveyor.yml
+		Build\Build.cmd = Build\Build.cmd
+		Build\packages.config = Build\packages.config
+		Build\Test.cmd = Build\Test.cmd
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
