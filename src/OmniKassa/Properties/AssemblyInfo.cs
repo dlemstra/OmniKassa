@@ -6,7 +6,6 @@ using System.Runtime.CompilerServices;
 
 [assembly: AssemblyDescription("C# API for OmniKassa")]
 [assembly: AssemblyCompany("Dirk Lemstra")]
-[assembly: AssemblyConfiguration("Debug")]
 [assembly: AssemblyProduct("OmniKassa")]
 [assembly: AssemblyCopyright("Copyright 2017 Dirk Lemstra")]
 [assembly: AssemblyTitle("OmniKassa")]
