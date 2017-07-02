@@ -5,15 +5,22 @@
     <DebugType Condition="$(codecov) == ''">portable</DebugType>
     <DebugSymbols>True</DebugSymbols>
     <Version>1.0.1</Version>
-    <Authors>Dirk Lemstra</Authors>
-    <Description>C# API for OmniKassa</Description>
-    <Copyright>Copyright 2017 Dirk Lemstra</Copyright>
     <PackageTags>OmniKassa</PackageTags>
     <PackageLicenseUrl>https://github.com/dlemstra/OmniKassa/blob/master/License.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/dlemstra/OmniKassa</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/dlemstra/OmniKassa/master/Logo/OmniKassa.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/dlemstra/OmniKassa</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net35' ">
     <SignAssembly>True</SignAssembly>
