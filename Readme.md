@@ -7,7 +7,7 @@ The OmniKassa library is a C# API that can be used to communicate with the [Omni
 
 |             |Build Status|Code Coverage|
 |-------------|:----------:|:-----------:|
-|**Linux/Mac**| -|[![codecov](https://codecov.io/gh/dlemstra/OmniKassa/branch/master/graph/badge.svg)](https://codecov.io/gh/dlemstra/OmniKassa)|
+|**Linux/Mac**| [![Build Status](https://travis-ci.org/dlemstra/OmniKassa.svg?branch=master)](https://travis-ci.org/dlemstra/OmniKassa)|[![codecov](https://codecov.io/gh/dlemstra/OmniKassa/branch/master/graph/badge.svg)](https://codecov.io/gh/dlemstra/OmniKassa)|
 |**Windows**  | [![Build status](https://ci.appveyor.com/api/projects/status/3ol6woroo3qsmrml/branch/master?svg=true)](https://ci.appveyor.com/project/dlemstra/omnikassa/branch/master)|[![codecov](https://codecov.io/gh/dlemstra/OmniKassa/branch/master/graph/badge.svg)](https://codecov.io/gh/dlemstra/OmniKassa)|
 
 
