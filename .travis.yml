@@ -15,5 +15,4 @@ matrix:
 
 script:
   - dotnet restore
-  - dotnet build OmniKassa.sln -f netstandard1.3 -c Release
-  - dotnet test tests/OmniKassa.Tests/OmniKassa.Tests.csproj -f netstandard1.3 --no-build -c Release
+  - dotnet test tests/OmniKassa.Tests/OmniKassa.Tests.csproj -c Release -f netcoreapp1.1
