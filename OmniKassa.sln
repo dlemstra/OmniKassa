@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OmniKassa.Tests", "tests\OmniKassa.Tests\OmniKassa.Tests.csproj", "{CC513427-6940-4786-99C0-4AAA355C9C9F}"
 EndProject
@@ -14,6 +14,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{5F1A57F7
 		Build\Build.cmd = Build\Build.cmd
 		Build\packages.config = Build\packages.config
 		Build\Test.cmd = Build\Test.cmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Publish", "Publish", "{3280FC19-8D7F-4FB1-B6E4-248F8A8C36D5}"
+	ProjectSection(SolutionItems) = preProject
+		Publish\Publish.cmd = Publish\Publish.cmd
+		Publish\Push.cmd = Publish\Push.cmd
 	EndProjectSection
 EndProject
 Global
