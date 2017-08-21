@@ -3,7 +3,8 @@
 The OmniKassa library is a C# API that can be used to communicate with the [OmniKassa](https://www.rabobank.nl/bedrijven/betalen/geld-ontvangen/rabo-omnikassa/) from the [Rabobank](https://www.rabobank.nl).
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)](https://raw.githubusercontent.com/dlemstra/line-bot-sdk-dotnet/master/License.txt)
-[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/fold_left.svg?style=social&label=Follow%20%40MagickNET)](https://twitter.com/MagickNET)
+[![Twitter URL](https://img.shields.io/badge/twitter-follow-1da1f2.svg)](https://twitter.com/MagickNET)
+[![Donate](https://img.shields.io/badge/%24-donate-ff00ff.svg)](https://www.paypal.me/DirkLemstra)
 
 |             |Build Status|Code Coverage|
 |-------------|:----------:|:-----------:|
@@ -93,7 +94,7 @@ public async Task HandleResponse(IKassa kassa, Microsoft.AspNetCore.Http.HttpReq
     HandleResponse(response);
 }
 
-// .NET Standard 1.3
+// .NET Framework
 public void HandleResponse(IKassa kassa, System.Web.HttpRequest request)
 {
     IPaymentResponse response = kassa.GetResponse(request);
