@@ -7,25 +7,25 @@ using System.Text;
 
 namespace OmniKassa
 {
-  internal static class Seal
-  {
-    public static string Create(string data, string secretKey)
+    internal static class Seal
     {
-      Debug.Assert(!string.IsNullOrEmpty(data));
-      Debug.Assert(!string.IsNullOrEmpty(secretKey));
-
-      using (SHA256 sha256 = SHA256.Create())
-      {
-        byte[] hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(data + secretKey));
-
-        StringBuilder hex = new StringBuilder(hash.Length * 2);
-        foreach (byte b in hash)
+        public static string Create(string data, string secretKey)
         {
-          hex.AppendFormat("{0:x2}", b);
-        }
+            Debug.Assert(!string.IsNullOrEmpty(data));
+            Debug.Assert(!string.IsNullOrEmpty(secretKey));
 
-        return hex.ToString();
-      }
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hash = sha256.ComputeHash(Encoding.UTF8.GetBytes(data + secretKey));
+
+                StringBuilder hex = new StringBuilder(hash.Length * 2);
+                foreach (byte b in hash)
+                {
+                    hex.AppendFormat("{0:x2}", b);
+                }
+
+                return hex.ToString();
+            }
+        }
     }
-  }
 }
