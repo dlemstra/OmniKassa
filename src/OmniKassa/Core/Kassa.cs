@@ -6,6 +6,7 @@
 using System;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
@@ -16,6 +17,9 @@ namespace OmniKassa
     /// </content>
     public sealed partial class Kassa : IKassa
     {
+        private readonly SemaphoreSlim _lock = new SemaphoreSlim(1);
+        private HttpClient _client;
+
         /// <summary>
         /// Returns the HTML that should be send to the customer that wants to start a payment.
         /// </summary>
@@ -23,10 +27,9 @@ namespace OmniKassa
         /// <returns>The HTML that should be send to the customer that wants to start a payment.</returns>
         public async Task<string> GetPaymentHtml(IPaymentRequest request)
         {
-            using (HttpClient client = new HttpClient())
-            {
-                return await GetPaymentHtml(client, request);
-            }
+            await CreateClient();
+
+            return await GetPaymentHtml(_client, request);
         }
 
         /// <summary>
@@ -78,6 +81,24 @@ namespace OmniKassa
                 return null;
 
             return Encoding.UTF8.GetString(responseData);
+        }
+
+        private async Task CreateClient()
+        {
+            if (_client != null)
+                return;
+
+            await _lock.WaitAsync();
+
+            try
+            {
+                if (_client == null)
+                    _client = new HttpClient();
+            }
+            finally
+            {
+                _lock.Release();
+            }
         }
     }
 }

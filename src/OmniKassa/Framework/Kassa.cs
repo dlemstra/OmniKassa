@@ -15,6 +15,9 @@ namespace OmniKassa
     /// </content>
     public sealed partial class Kassa : IKassa
     {
+        private readonly object _lock = new object();
+        private HttpClient _client;
+
         /// <summary>
         /// Returns the HTML that should be send to the customer that wants to start a payment.
         /// </summary>
@@ -22,10 +25,9 @@ namespace OmniKassa
         /// <returns>The HTML that should be send to the customer that wants to start a payment.</returns>
         public string GetPaymentHtml(IPaymentRequest request)
         {
-            using (HttpClient client = new HttpClient())
-            {
-                return GetPaymentHtml(client, request);
-            }
+            CreateClient();
+
+            return GetPaymentHtml(_client, request);
         }
 
         /// <summary>
@@ -76,6 +78,18 @@ namespace OmniKassa
                 return null;
 
             return Encoding.UTF8.GetString(responseData);
+        }
+
+        private void CreateClient()
+        {
+            if (_client != null)
+                return;
+
+            lock (_lock)
+            {
+                if (_client == null)
+                    _client = new HttpClient();
+            }
         }
     }
 }
