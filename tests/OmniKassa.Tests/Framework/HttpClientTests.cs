@@ -1,4 +1,4 @@
-﻿// Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
+﻿// Copyright 2017-2018 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
 // Licensed under the MIT License.
 
 #if NET45

@@ -1,4 +1,4 @@
-﻿// Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
+﻿// Copyright 2017-2018 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).
 // Licensed under the MIT License.
 
 using System.Reflection;
@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyDescription("C# API for OmniKassa")]
 [assembly: AssemblyCompany("Dirk Lemstra")]
 [assembly: AssemblyProduct("OmniKassa")]
-[assembly: AssemblyCopyright("Copyright 2017 Dirk Lemstra")]
+[assembly: AssemblyCopyright("Copyright 2017-2018 Dirk Lemstra")]
 [assembly: AssemblyTitle("OmniKassa")]
 
 [assembly: AssemblyVersion("1.0.1")]

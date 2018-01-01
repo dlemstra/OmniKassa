@@ -4,7 +4,7 @@
     "documentationRules": {
       "companyName": "Dirk Lemstra",
       "xmlHeader": false,
-      "copyrightText": "Copyright 2017 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).\nLicensed under the MIT License.",
+      "copyrightText": "Copyright 2017-2018 Dirk Lemstra (https://github.com/dlemstra/OmniKassa).\nLicensed under the MIT License.",
       "documentInternalElements": false
     },
     "indentation": {
